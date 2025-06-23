@@ -59,11 +59,12 @@ Para testar e depurar a conexão MQTT, recomendamos instalar o [**MQTT Explorer*
     ```
 
 2. Preencha `MQTT_HOST`, `MQTT_PORT`, `MQTT_USER` e `MQTT_PASS` com as credenciais do broker MQTT:
-
-> MQTT_HOST = mqtt.ecoplus-apps.com
-> MQTT_PORT = 1883
-> MQTT_USER = ecoplus-teste:temp_user
-> MQTT_PASS = u9JJ8d8DOp
+    ```
+    - MQTT_HOST = mqtt.ecoplus-apps.com
+    - MQTT_PORT = 1883
+    - MQTT_USER = ecoplus-teste:temp_user
+    - MQTT_PASS = u9JJ8d8DOp
+    ```
 
 ## Preparação do ambiente
 
