@@ -23,9 +23,9 @@ Este repositório contém minha solução para o desafio técnico da ECO Automa�
 
 - JSON da dashboard disponíveis em `grafana/provisioning/dashboards/desafio-tecnico.json`.
 
-## 📎 Dashboard final
+## Dashboard final
 
-![Dashboard](docs/dashboard_kpis.png)
+![Dashboard](./docs/dashboard.png)
 
 ## Consultas utilizadas em cada KPI
 
@@ -45,15 +45,10 @@ WHERE $__timeFilter(datahora);
 
 ```sql
 SELECT
-  AVG(pecas_por_hora) AS performance
-FROM (
-  SELECT
-    date_trunc('hour', datahora) AS hora,
-    SUM(pecas_produzidas) AS pecas_por_hora
-  FROM dados_maquina
-  WHERE $__timeFilter(datahora)
-  GROUP BY hora
-) AS performance_por_hora;
+  SUM(pecas_produzidas) / NULLIF(EXTRACT(EPOCH FROM MAX(datahora) - MIN(datahora)), 0) * 3600 AS performance
+FROM dados_maquina
+WHERE $__timeFilter(datahora)
+
 ```
 
 ### Qualidade

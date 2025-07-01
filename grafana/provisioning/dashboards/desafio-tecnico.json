@@ -193,7 +193,7 @@
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
-          "rawSql": "SELECT\n  AVG(pecas_por_hora) AS performance\nFROM (\n  SELECT\n    date_trunc('hour', datahora) AS hora,\n    SUM(pecas_produzidas) AS pecas_por_hora\n  FROM dados_maquina\n  WHERE $__timeFilter(datahora)\n  GROUP BY hora\n) AS performance_por_hora",
+          "rawSql": "SELECT\n  SUM(pecas_produzidas) / NULLIF(EXTRACT(EPOCH FROM MAX(datahora) - MIN(datahora)), 0) * 3600 AS performance\nFROM dados_maquina\nWHERE $__timeFilter(datahora)\n",
           "refId": "pecas_produzidas",
           "sql": {
             "columns": [
@@ -657,5 +657,5 @@
   "timezone": "browser",
   "title": "Desafio Técnico",
   "uid": "f3c4f2a6-582d-4369-afe3-96b1118b2d33",
-  "version": 5
+  "version": 6
 }
