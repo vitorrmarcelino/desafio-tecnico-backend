@@ -19,7 +19,7 @@ Este repositório contém minha solução para o desafio técnico da ECO Automa�
   - **Total de peças produzidas**
   - **Total de peças defeituosas**
 
-- Todos os KPIs utilizam o filtro de tempoo (`__timeFilter`).
+- Todos os KPIs utilizam o filtro de tempo (`__timeFilter`).
 
 - JSON da dashboard disponíveis em `grafana/provisioning/dashboards/desafio-tecnico.json`.
 
@@ -62,7 +62,7 @@ WHERE $__timeFilter(datahora);
 ### OEE
 
 ```sql
-Utilizado expressão matemática do grafana => ($qualidade/100) * ($disponibilidade/100) * ($performance/100)
+Utilizado expressão matemática do grafana - ($qualidade/100) * ($disponibilidade/100) * ($performance/100)
 ```
 
 ### Total de peças produzidas
