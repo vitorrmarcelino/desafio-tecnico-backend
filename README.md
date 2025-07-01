@@ -48,7 +48,6 @@ SELECT
   SUM(pecas_produzidas) / NULLIF(EXTRACT(EPOCH FROM MAX(datahora) - MIN(datahora)), 0) * 3600 AS performance
 FROM dados_maquina
 WHERE $__timeFilter(datahora)
-
 ```
 
 ### Qualidade
